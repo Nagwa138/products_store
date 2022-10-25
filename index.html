@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+         :root {
+            --main-color: rgb(233, 95, 45);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            min-height: 100vh;
+            /* background-color: black; */
+        }
+        
+        section .nav {
+            height: 10vh;
+            background-color: white;
+            position: fixed;
+            z-index: 999;
+            width: 100vw;
+        }
+        
+        section .nav #hamb-menu {
+            display: none;
+            font-size: 20px;
+        }
+        
+        section .nav #hamb-menu:hover {
+            color: var(--main-color);
+            cursor: pointer;
+        }
+        
+        section .content {
+            height: 65vh;
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            background-color: rgba(128, 128, 128, 0.023);
+        }
+        
+        section .message {
+            height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        
+        .container {
+            width: 90%;
+            height: 100%;
+            margin: auto;
+        }
+        
+        section .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        section .nav .logo {
+            padding: 10px 0;
+            width: 150px;
+            height: 100%;
+        }
+        
+        section .nav .logo .heart-icon {
+            height: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            text-transform: uppercase;
+            align-items: center;
+            font-size: 33px;
+            font-weight: bolder;
+        }
+        
+        section .nav .logo .heart-icon :last-child {
+            font-size: 25px;
+            align-self: flex-start;
+        }
+        
+        section .nav .logo .paragraph-container {
+            height: 30%;
+        }
+        
+        section .nav .logo .paragraph-container p {
+            font-size: 13px;
+            color: grey;
+            padding-top: 10px;
+            text-align: center;
+        }
+        
+        section .nav .menu {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75em;
+        }
+        
+        section .nav .menu a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+            height: 100%;
+            width: calc(100% / 6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        section .nav .menu a:nth-of-type(5)::after {
+            content: "";
+            position: absolute;
+            top: 45%;
+            right: 0;
+            border: 5px solid black;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            border-left-color: transparent;
+        }
+        
+        .active {
+            background-color: var(--main-color);
+            color: white !important;
+        }
+        
+        #dropdown-list {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            right: -100%;
+            display: none;
+        }
+        
+        #up-arrow {
+            padding: 17px 20px;
+            border-radius: 30px;
+            position: fixed;
+            display: none;
+            text-decoration: none;
+            bottom: 5%;
+            right: 5%;
+        }
+        
+        section #home {
+            height: 80vh;
+            width: 100%;
+            position: relative;
+            /* padding-top: 5vh; */
+            /* display: flex; */
+        }
+        
+        section #home .image-container {
+            width: 100%;
+            height: 100%;
+            /* background-color: red; */
+            display: flex;
+            justify-content: center;
+            /* padding-top: 10vh; */
+            /* position: ; */
+        }
+        
+        section #home .image-container img {
+            height: 100%;
+            width: auto;
+            /* margin: auto; */
+        }
+        
+        section #home .arrow-container {
+            position: absolute;
+            z-index: 1;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+        }
+        
+        section #home .arrow-container button {
+            display: flex;
+            padding: 10px;
+            border: 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        section #home .dot-container {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            bottom: 5%;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        section #home .dot-container div {
+            background-color: grey;
+            padding: 7px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        section #home .dot-container div:first-child {
+            background-color: var(--main-color);
+        }
+        
+        @media screen and (max-width:1280px) {
+            section .nav .menu a:nth-of-type(5)::after {
+                right: -8px;
+            }
+            section .nav .menu {
+                width: 60%;
+            }
+        }
+        
+        @media screen and (max-width:900px) {
+            section .nav .menu {
+                display: none;
+                flex-direction: column;
+                /* margin-top: 60vh; */
+                top: 10vh;
+                right: 0;
+                background-color: white;
+                width: 50vw;
+                height: 90vh;
+                position: absolute;
+            }
+            section .nav .menu a:nth-of-type(5)::after {
+                right: 10%;
+            }
+            section .nav .menu a {
+                width: 90%;
+                /* color: white; */
+            }
+            section .nav #hamb-menu {
+                display: block;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="main">
+    <section>
+        <div class="nav">
+            <div class="container">
+                <div class="logo">
+                    <div class="heart-icon">
+                        <span style="color: var(--main-color)">&#10084;</span>
+                        <span>Relief</span>
+                    </div>
+                    <div class="paragraph-container">
+                        <p>
+                            Give a little, Help a lot.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="menu">
+                    <a class="active" href="#home">home</a>
+                    <a href="#about">about</a>
+                    <a href="#gallery">gallery</a>
+                    <a href="#pricing">pricing</a>
+                    <a>
+                        dropdown
+
+                        <div id="dropdown-list">
+                            <p>HI</p>
+                            <p>HI</p>
+                            <p>HI</p>
+                            <p>HI</p>
+                            <p>HI</p>
+                        </div>
+                    </a>
+                    <a href="">contact</a>
+                </div>
+                <i id="hamb-menu" class="fa-solid fa-bars"></i>
+
+            </div>
+        </div>
+        <div class="content" id="home">
+            <div class="image-container">
+                <img src="./images/pexels-jani-hrušková-14028501.jpg">
+                <img src="./images/pexels-jani-hrušková-14041162.jpg">
+                <img src="./images/pexels-kris-møklebust-13935769.jpg">
+            </div>
+            <div class="arrow-container">
+                <button onclick="updateCurrentImage('-')">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button onclick="updateCurrentImage('+')">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="dot-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="message" id="about">
+            Hello I am About section
+        </div>
+        <div class="content" id="gallery">
+            Hello I am Gallery section
+        </div>
+        <div class="message" id="pricing">
+            Hello I sm pricing section
+        </div>
+        <a id="up-arrow" href="#main" class="active">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </section>
+
+
+
+
+    <script src="./js/custom.js"></script>
+</body>
+
+</html>
